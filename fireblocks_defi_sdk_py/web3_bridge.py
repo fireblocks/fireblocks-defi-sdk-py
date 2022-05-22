@@ -1,6 +1,5 @@
 import sys
 import time
-from uuid import UUID
 
 from fireblocks_sdk import FireblocksSDK, TransferPeerPath, DestinationTransferPeerPath, ONE_TIME_ADDRESS, VAULT_ACCOUNT, \
     EXTERNAL_WALLET
