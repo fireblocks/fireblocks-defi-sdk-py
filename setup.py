@@ -1,10 +1,10 @@
 from distutils.core import setup
 setup(
-    name='Fireblocks DeFi SDK Py',
-    packages=['Fireblocks DeFi SDK Py'],
+    name='fireblocks-defi-sdk-py',
+    packages=['fireblocks-defi-sdk-py'],
     version='1.0',
     license='MIT',
-    description = 'Fireblocks DeFi SDK Py',
+    description = 'fireblocks-defi-sdk-py',
     author = 'Fireblocks',
     author_email = 'fireblocks@fireblocks.com',
     url = 'https://github.com/fireblocks/fireblocks-defi-sdk-py',   # Provide either the link to your github or to your website
