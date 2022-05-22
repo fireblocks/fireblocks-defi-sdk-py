@@ -1,5 +1,6 @@
 import sys
 import time
+from uuid import UUID
 
 from fireblocks_sdk import FireblocksSDK, TransferPeerPath, DestinationTransferPeerPath, ONE_TIME_ADDRESS, VAULT_ACCOUNT, \
     EXTERNAL_WALLET
@@ -24,16 +25,13 @@ class Web3Bridge:
         self.chain = chain
 
     def send_transaction(self, tx_data, note=''):
-        # if type(self.external_wallet_id) == EXTERNAL_WALLET:
-        #     dest = DestinationTransferPeerPath(EXTERNAL_WALLET, self.external_wallet_id)
-        # else:
-        #     dest = DestinationTransferPeerPath(ONE_TIME_ADDRESS, one_time_address=self.external_wallet_id)
         return self.fb_api_client.create_transaction(
             tx_type="CONTRACT_CALL",
             asset_id=CHAIN_TO_ASSET_ID[self.chain],
             source=TransferPeerPath(VAULT_ACCOUNT, self.source_vault_id),
             amount="0",
             destination=DestinationTransferPeerPath(ONE_TIME_ADDRESS, one_time_address={"address": self.external_wallet_address}),
+            # destination=TransferPeerPath(EXTERNAL_WALLET, "2957584b-ffc1-bc42-8f78-0c6ff7a5d7c3") --> for whitelisted address
             note=note,
             extra_parameters={
                 "contractCallData": tx_data["data"]
