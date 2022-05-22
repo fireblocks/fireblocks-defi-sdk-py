@@ -10,6 +10,7 @@ setup(
     url = 'https://github.com/fireblocks/fireblocks-defi-sdk-py',   # Provide either the link to your github or to your website
     download_url = 'https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.0.tar.gz',
     keywords = ['FIREBLOCKS', 'DeFi', 'SDK', 'PYTHON'],   # Keywords that define your package best
+
     install_requires=[
           'fireblocks_sdk',
           'web3',
