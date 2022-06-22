@@ -1,5 +1,5 @@
-from base_token import *
-from ..utils.helpers import ERC721_ABI
+from . base_token import *
+from .. utils.helpers import ERC721_ABI
 
 
 class ERC721(BaseToken):
@@ -124,12 +124,14 @@ class ERC721(BaseToken):
         operator_checked_address = self.web_provider.toChecksumAddress(operator_address)
         return self.call_read_function("isApprovedForAll", owner_checked_address, operator_checked_address)
 
-    def balance_of(self, owner_address: str) -> int:
+    def balance_of(self, owner_address: str = "") -> int:
         """
         Gets the balance of the address provided
         :param owner_address: Address to be checked
         :return: Balance (int)
         """
+        if not owner_address:
+            owner_address = self.wallet_address
         owner_checked_address = self.web_provider.toChecksumAddress(owner_address)
         return self.call_read_function("balanceOf", owner_checked_address)
 

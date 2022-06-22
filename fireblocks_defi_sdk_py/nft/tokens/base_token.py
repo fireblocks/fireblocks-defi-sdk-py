@@ -1,5 +1,5 @@
-from fireblocks_defi_sdk_py.web3_bridge import Web3Bridge, CHAIN_TO_ASSET_ID
-from ..utils.helpers import ADDRESS
+from ... web3_bridge import Web3Bridge, CHAIN_TO_ASSET_ID
+from .. utils.helpers import ADDRESS
 from web3 import Web3, contract
 
 

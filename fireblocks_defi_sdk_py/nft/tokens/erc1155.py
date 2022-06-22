@@ -1,5 +1,5 @@
-from base_token import *
-from ..utils.helpers import ERC1155_ABI
+from . base_token import *
+from .. utils.helpers import ERC1155_ABI
 
 
 class ERC1155(BaseToken):
@@ -97,22 +97,26 @@ class ERC1155(BaseToken):
             interface_id = "0xd9b67a26"
         return self.call_read_function("supportsInterface", interface_id)
 
-    def balance_of(self, owner_address: str, token_id: int) -> int:
+    def balance_of(self, token_id: int, owner_address: str = "") -> int:
         """
         Gets the balance of the address provided
         :param owner_address: Address to be checked
         :param token_id: ID of the token.
         :return: Balance (int)
         """
+        if not owner_address:
+            owner_address = self.wallet_address
         return self.call_read_function("balanceOf", owner_address, token_id)
 
-    def balance_of_batch(self, owners_list: list[str], id_list: list[int]) -> list[int]:
+    def balance_of_batch(self, id_list: list[int], owners_list: list[str] = []) -> list[int]:
         """
 
         :param owners_list: A list of addresses
         :param id_list: A list of token Ids
         :return:
         """
+        if not owners_list:
+            owners_list = [self.wallet_address]
         checked_addresses = [self.web_provider.toChecksumAddress(address) for address in owners_list]
         return self.call_read_function("balanceOfBatch", checked_addresses, id_list)
 

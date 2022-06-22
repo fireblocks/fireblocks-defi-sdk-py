@@ -1,4 +1,4 @@
-from base_token import *
+from . base_token import *
 
 
 class CustomToken(BaseToken):
