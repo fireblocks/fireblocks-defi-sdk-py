@@ -1,6 +1,6 @@
 # This is an example of interacting with a custom contract, using the CustomToken interface.
 import os
-from fireblocks_defi_sdk_py import Chain, CustomToken, Web3Bridge, fetch_abi
+from fireblocks_defi_sdk_py import Chain, CustomToken, Web3Bridge
 from fireblocks_sdk import FireblocksSDK, TRANSACTION_STATUS_COMPLETED
 
 API_KEY = os.environ['TEST_API_KEY']
@@ -46,8 +46,8 @@ if __name__ == "__main__":
                                     custom_contract_bridge.wallet_address,
                                     building_params=building_params)
             ownership_transaction = secondary_contract_bridge.submit_transaction(ownership_raw_transaction, "Returning")
-            if secondary_ropsten_bridge.check_tx_is_completed(ownership_transaction['id']) ==
-                TRANSACTION_STATUS_COMPLETED:
+            if secondary_ropsten_bridge.check_tx_is_completed(ownership_transaction['id']) == \
+                    TRANSACTION_STATUS_COMPLETED:
                 print("Successfully transferred ownership from second wallet to the first one.")
             else:
                 print("Failed transferring ownership from the second wallet to the first.")
