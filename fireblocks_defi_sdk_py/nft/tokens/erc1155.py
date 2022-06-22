@@ -108,7 +108,7 @@ class ERC1155(BaseToken):
             owner_address = self.wallet_address
         return self.call_read_function("balanceOf", owner_address, token_id)
 
-    def balance_of_batch(self, id_list: list[int], owners_list: list[str] = []) -> list[int]:
+    def balance_of_batch(self, id_list: list[int], owners_list=None) -> list[int]:
         """
 
         :param owners_list: A list of addresses
