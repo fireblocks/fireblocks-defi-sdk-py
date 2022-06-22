@@ -24,7 +24,6 @@ class Web3Bridge:
     def __init__(self, fb_api_client: FireblocksSDK, vault_account_id: str, external_wallet_address: str, chain: Chain,
                  wl_uuid: str = ""):
         """
-
         :param fb_api_client: Fireblocks API client.
         :param vault_account_id: The source vault which address will sign messages.
         :param external_wallet_address: The address of the interacted *contract*.
