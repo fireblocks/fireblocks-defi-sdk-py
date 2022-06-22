@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     # ERC721 implements all the basic capabilities mentioned in ERC721:
     # https://ethereum.org/en/developers/docs/standards/tokens/erc-721/
-    # This example will show a few examples including the inherited supportsInterface from ERC165.
+    # This code will show a few examples including the inherited supportsInterface from ERC165.
 
     # Each interface has a unique ID. If no parameter is passed onto the function, it checks for the default interface
     # of token, meaning - 721.
