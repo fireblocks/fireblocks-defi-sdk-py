@@ -1,7 +1,6 @@
 # This is an example of interacting with an ERC-1155 contract, using the ERC1155 interface.
 import os
-from .. import ERC1155
-from ... import Chain, Web3Bridge
+from fireblocks_defi_sdk_py import ERC1155, Chain, Web3Bridge
 from fireblocks_sdk import FireblocksSDK
 
 API_KEY = os.environ['TEST_API_KEY']
