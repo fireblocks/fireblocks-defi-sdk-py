@@ -8,9 +8,9 @@ API_SECRET = os.environ['SECRET']
 
 SDK = FireblocksSDK(API_SECRET, API_KEY)
 VAULT_ID = "0"
-CONTRACT_ADDRESS = "0x4CD0aDa45c31Df18E3D7f262c3f1FD007d4BDD99"
-RECEIVER_ADDRESS = "0x76D6063b0A35Ec0f84fd22bA2F93754Fbf180e59"
-TOKEN_ID = 101
+CONTRACT_ADDRESS = ""
+RECEIVER_ADDRESS = ""
+TOKEN_ID = 1
 
 if __name__ == "__main__":
     # We start by building a bridge to the Ropsten network, including initiating a ERC721 object.
