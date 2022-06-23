@@ -86,15 +86,13 @@ class ERC1155(BaseToken):
         return self.submit_transaction(transaction, note)
 
     # Views
-    def supports_interface(self, interface_id: str = "") -> bool:
+    def supports_interface(self, interface_id: str = "0xd9b67a26") -> bool:
         """
         Checks if contract supports a certain interface.
         :param interface_id: (Optional) The interface id. "0x80ac58cd" is ERC721 interface id. "0xd9b67a26" is ERC1155
          interface id. Checks class interface id by default.
         :return: True if the contract supports the interface, False otherwise
         """
-        if not interface_id:
-            interface_id = "0xd9b67a26"
         return self.call_read_function("supportsInterface", interface_id)
 
     def balance_of(self, token_id: int, owner_address: str = "") -> int:
