@@ -131,11 +131,11 @@ class ERC1155(BaseToken):
         operator_checked_address = self.web_provider.toChecksumAddress(operator_address)
         return self.call_read_function("isApprovedForAll", owner_checked_address, operator_checked_address)
 
-    def uri(self, uri_id: int) -> str:
+    def uri(self, token_id: int) -> str:
         """
-        :param uri_id: URI id of a contract
+        :param token_id: URI id of a contract
         :return: The JSON metadata
         """
-        return self.call_read_function("uri", uri_id)
+        return self.call_read_function("uri", token_id)
 
     # Events
