@@ -114,7 +114,7 @@ class ERC1155(BaseToken):
         :return:
         """
         if not owners_list:
-            owners_list = [self.wallet_address]
+            owners_list = [self.wallet_address] * len(id_list)
         checked_addresses = [self.web_provider.toChecksumAddress(address) for address in owners_list]
         return self.call_read_function("balanceOfBatch", checked_addresses, id_list)
 
