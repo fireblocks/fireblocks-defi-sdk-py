@@ -31,8 +31,10 @@ if __name__ == "__main__":
 
     # We will mint a token (function receives address & amount) to our own address and then send it to another address.
     # We will also have to add the sender under the building_params in the following format:
-    building_params = {"from": erc20_contract_bridge.wallet_address}
-    mint_raw_transaction = erc20_contract_bridge.call_write_function("mint", erc20_contract_bridge.wallet_address,
+    checked_address = erc20_contract_bridge.web_provider.toChecksumAddress(erc20_contract_bridge.wallet_address)
+    # Web3 only accepts checkedSum addresses.
+    building_params = {"from": checked_address}
+    mint_raw_transaction = erc20_contract_bridge.call_write_function("mint", checked_address,
                                                                      TOKEN_AMOUNT,
                                                                      building_params=building_params)
     # We will now submit the transaction to Fireblocks.
@@ -40,7 +42,7 @@ if __name__ == "__main__":
     if ropsten_bridge.check_tx_is_completed(mint_transaction['id']) == TRANSACTION_STATUS_COMPLETED:
         print(f"Successfully minted {TOKEN_AMOUNT} to {erc20_contract_bridge.wallet_address}")
         transfer_raw_transaction = erc20_contract_bridge.call_write_function("transferFrom",
-                                                                             erc20_contract_bridge.wallet_address,
+                                                                             checked_address,
                                                                              RECEIVER_ADDRESS, TOKEN_AMOUNT,
                                                                              building_params=building_params)
         transfer_transaction = erc20_contract_bridge.submit_transaction(transfer_raw_transaction,
