@@ -8,13 +8,13 @@ Please email us at support@fireblocks.com if you have questions or feedback.
 # Table Of Contents
 - [Features](#Features)
   - [Web3 Bridge](#Bridge)
-  - [NFT](#Tokens)
+  - [Tokens](#Tokens)
 - [Usage](#Usage)
   - [Installation](#Installation)
   - [Requirements](#Requirements)
 - [Code Examples](#Examples)
-  - [Bridge](#Bridge)
-  - [NFT](#NFT)
+  - [Web3Bridge](#Web3Bridge)
+  - [Tokenization](#Tokenization)
 
 ## Features
 ### Bridge
@@ -31,12 +31,12 @@ Full support for interfaces ERC721, ERC1155 and custom ABIs.
 Python 3.6 or newer
 
 ## Examples
-### Bridge
+### Web3Bridge
 * [Basic Example](./fireblocks_defi_sdk_py/examples/basic_example.py)
 * [Trading on Uniswap](./fireblocks_defi_sdk_py/examples/uniswap_example.py)
 
-### NFT
-* [ERC20 using CustomToken](./fireblocks_defi_sdk_py/nft/examples/erc20_example.py)
-* [ERC721](./fireblocks_defi_sdk_py/nft/examples/nft_example.py)
-* [ERC1155](./fireblocks_defi_sdk_py/nft/examples/multi_token_example.py)
-* [CustomToken](./fireblocks_defi_sdk_py/nft/examples/custom_token_example.py)
+### Tokenization
+* [ERC20 using CustomToken](./fireblocks_defi_sdk_py/tokenization/examples/erc20_example.py)
+* [ERC721](./fireblocks_defi_sdk_py/tokenization/examples/nft_example.py)
+* [ERC1155](./fireblocks_defi_sdk_py/tokenization/examples/multi_token_example.py)
+* [CustomToken](./fireblocks_defi_sdk_py/tokenization/examples/custom_token_example.py)
