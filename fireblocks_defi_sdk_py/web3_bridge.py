@@ -3,8 +3,8 @@ import time
 from fireblocks_sdk import FireblocksSDK, TransferPeerPath, DestinationTransferPeerPath, ONE_TIME_ADDRESS, \
     VAULT_ACCOUNT, EXTERNAL_WALLET, TRANSACTION_STATUS_BLOCKED, TRANSACTION_STATUS_COMPLETED, TRANSACTION_STATUS_FAILED
 from fireblocks_sdk.api_types import TRANSACTION_STATUS_CANCELLED
-
 from chain import Chain
+from web3 import Web3
 
 SUBMIT_TIMEOUT = 45
 STATUS_KEY = "status"
@@ -34,6 +34,8 @@ class Web3Bridge:
         self.source_vault_id = vault_account_id
         self.external_wallet_address = external_wallet_address
         self.chain = chain
+        self.asset: str = CHAIN_TO_ASSET_ID[self.chain][0]
+        self.web_provider = Web3(Web3.HTTPProvider(CHAIN_TO_ASSET_ID[self.chain][1]))
         self.wl_uuid = wl_uuid
 
     def send_transaction(self, transaction: dict, note="") -> dict:

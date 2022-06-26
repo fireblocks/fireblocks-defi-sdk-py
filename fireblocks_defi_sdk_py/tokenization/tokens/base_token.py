@@ -1,6 +1,6 @@
 from ... web3_bridge import Web3Bridge, CHAIN_TO_ASSET_ID
 from .. utils.helpers import ADDRESS
-from web3 import Web3, contract
+from web3 import contract
 
 
 class BaseToken:
@@ -10,10 +10,9 @@ class BaseToken:
         address optional as well).
         """
         self.web3_bridge = web3_bridge
-        self.asset: str = CHAIN_TO_ASSET_ID[self.web3_bridge.chain][0]
         self.wallet_address = self.web3_bridge.fb_api_client.get_deposit_addresses(self.web3_bridge.source_vault_id,
-                                                                                   self.asset)[0][ADDRESS]
-        self.web_provider = Web3(Web3.HTTPProvider(CHAIN_TO_ASSET_ID[self.web3_bridge.chain][1]))
+                                                                                   self.web3_bridge.asset)[0][ADDRESS]
+        self.web_provider = web3_bridge.web_provider
         self.abi = None
         self.contract: contract = self.web_provider.eth.contract(
             address=self.web_provider.toChecksumAddress(self.web3_bridge.external_wallet_address)
