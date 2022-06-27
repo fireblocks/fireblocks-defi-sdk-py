@@ -25,3 +25,4 @@ class Chain(Enum):
     CELO_BAK = "celo_baklava"
     OPTIMISM = "optimistic_ethereum"
     OPTIMISM_KOVAN = "optimistic ethereum kovan"
+    RONIN = "ronin"
