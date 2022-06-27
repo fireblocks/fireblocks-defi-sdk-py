@@ -73,7 +73,7 @@ class Web3Bridge:
             else:
                 address = self.external_wallet_address
             destination = DestinationTransferPeerPath(ONE_TIME_ADDRESS,
-                                                      one_time_address={"address": self.external_wallet_address})
+                                                      one_time_address={"address": address})
         return self.fb_api_client.create_transaction(
             tx_type="CONTRACT_CALL",
             asset_id=self.asset,
