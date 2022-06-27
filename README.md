@@ -32,11 +32,11 @@ Python 3.6 or newer
 
 ## Examples
 ### Web3Bridge
-* [Basic Example](./fireblocks_defi_sdk_py/examples/basic_example.py)
-* [Trading on Uniswap](./fireblocks_defi_sdk_py/examples/uniswap_example.py)
+* [Basic Example](fireblocks_defi_sdk_py/examples/basic_example.py)
+* [Trading on Uniswap](fireblocks_defi_sdk_py/examples/uniswap_example.py)
 
 ### Tokenization
-* [ERC20 using CustomToken](./fireblocks_defi_sdk_py/tokenization/examples/erc20_example.py)
-* [ERC721](./fireblocks_defi_sdk_py/tokenization/examples/nft_example.py)
-* [ERC1155](./fireblocks_defi_sdk_py/tokenization/examples/multi_token_example.py)
-* [CustomToken](./fireblocks_defi_sdk_py/tokenization/examples/custom_token_example.py)
+* [ERC20 using CustomToken](fireblocks_defi_sdk_py/tokenization/examples/erc20_example.py)
+* [ERC721](fireblocks_defi_sdk_py/tokenization/examples/nft_example.py)
+* [ERC1155](fireblocks_defi_sdk_py/tokenization/examples/multi_token_example.py)
+* [CustomToken](fireblocks_defi_sdk_py/tokenization/examples/custom_token_example.py)
