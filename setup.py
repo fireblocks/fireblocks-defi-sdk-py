@@ -2,8 +2,12 @@ from distutils.core import setup
 
 setup(
     name='fireblocks_defi_sdk_py',
-    packages=['fireblocks_defi_sdk_py'],
-    version='1.1',
+    packages=['fireblocks_defi_sdk_py',
+              'fireblocks_defi_sdk_py.tokenization',
+              'fireblocks_defi_sdk_py.tokenization.tokens',
+              'fireblocks_defi_sdk_py.tokenization.utils',
+              'fireblocks_defi_sdk_py.tokenization.examples'],
+    version='1.2',
     license='MIT',
     description='fireblocks_defi_sdk_py',
     author='Fireblocks',
