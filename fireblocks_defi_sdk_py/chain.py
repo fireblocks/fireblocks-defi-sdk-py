@@ -26,3 +26,4 @@ class Chain(Enum):
     OPTIMISM = "optimistic_ethereum"
     OPTIMISM_KOVAN = "optimistic ethereum kovan"
     RONIN = "ronin"
+    RONIN_TEST = "ronin_test"
