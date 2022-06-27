@@ -33,24 +33,28 @@ CHAIN_TO_ASSET_ID = {
     Chain.CELO: ('CELO', "https://rpc.ankr.com/celo"),
     Chain.CELO_BAK: ('CELO_BAK', "https://baklava-blockscout.celo-testnet.org/api/eth-rpc"),
     Chain.OPTIMISM: ('ETH-OPT', "https://rpc.ankr.com/optimism"),
-    Chain.OPTIMISM_KOVAN: ('ETH-OPT_KOV', "https://optimism-kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161")
+    Chain.OPTIMISM_KOVAN: ('ETH-OPT_KOV', "https://optimism-kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"),
+    Chain.RONIN: ('RON', "https://api.roninchain.com/rpc")
 }
 
 
 class Web3Bridge:
-    def __init__(self, fb_api_client: FireblocksSDK, vault_account_id: str, external_wallet_address: str, chain: Chain,
+    def __init__(self, fb_api_client: FireblocksSDK,
+                 vault_account_id: str,
+                 chain: Chain,
+                 external_wallet_address: str = "",
                  wl_uuid: str = ""):
         """
         :param fb_api_client: Fireblocks API client.
         :param vault_account_id: The source vault which address will sign messages.
-        :param external_wallet_address: The address of the interacted *contract*.
         :param chain: Object of type Chain to represent what network to work with.
+        :param external_wallet_address: The address of the interacted *contract*.
         :param wl_uuid: (Optional) If the contract is whitelisted, it can be sent through the co-responding UUID.
         """
         self.fb_api_client = fb_api_client
         self.source_vault_id = vault_account_id
-        self.external_wallet_address = external_wallet_address
         self.chain = chain
+        self.external_wallet_address = external_wallet_address
         self.asset: str = CHAIN_TO_ASSET_ID[self.chain][0]
         self.web_provider = Web3(Web3.HTTPProvider(CHAIN_TO_ASSET_ID[self.chain][1]))
         self.wl_uuid = wl_uuid
@@ -65,11 +69,15 @@ class Web3Bridge:
         if self.wl_uuid:
             destination = TransferPeerPath(EXTERNAL_WALLET, self.wl_uuid)
         else:
+            if not self.external_wallet_address:
+                address = "0x0"
+            else:
+                address = self.external_wallet_address
             destination = DestinationTransferPeerPath(ONE_TIME_ADDRESS,
-                                                      one_time_address={"address": self.external_wallet_address})
+                                                      one_time_address={"address": address})
         return self.fb_api_client.create_transaction(
             tx_type="CONTRACT_CALL",
-            asset_id=CHAIN_TO_ASSET_ID[self.chain],
+            asset_id=self.asset,
             source=TransferPeerPath(VAULT_ACCOUNT, self.source_vault_id),
             amount="0",
             destination=destination,

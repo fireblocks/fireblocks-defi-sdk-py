@@ -1,4 +1,4 @@
-from ... web3_bridge import Web3Bridge, CHAIN_TO_ASSET_ID
+from ... web3_bridge import Web3Bridge
 from .. utils.helpers import ADDRESS
 from web3 import contract
 
@@ -9,6 +9,8 @@ class BaseToken:
         :param web3_bridge: Web3Bridge that holds the SDK, contract address, vault ID and chain (with white listed
         address optional as well).
         """
+        if not web3_bridge.external_wallet_address:
+            raise ValueError("Bridge must contain a contract address (external_wallet_address).")
         self.web3_bridge = web3_bridge
         self.wallet_address = self.web3_bridge.fb_api_client.get_deposit_addresses(self.web3_bridge.source_vault_id,
                                                                                    self.web3_bridge.asset)[0][ADDRESS]
