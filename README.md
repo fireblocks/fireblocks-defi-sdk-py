@@ -25,7 +25,7 @@ Full support for interfaces ERC721, ERC1155 and custom ABIs.
 
 ## Usage
 ### Installation
-`pip3 install fireblocks-defi-sdk-py`
+`pip3 install fireblocks-defi-sdk`
 
 ### Requirements
 Python 3.6 or newer
