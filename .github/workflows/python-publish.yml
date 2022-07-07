@@ -44,8 +44,6 @@ jobs:
           echo "finished configuration"
           bumpversion patch --new-version $tag
           echo "bumpversion finished"
-          git add .
-          git commit -m "release $tag"
     - name: Build package
       run: python -m build
     - name: Publish package
