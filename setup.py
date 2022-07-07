@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='fireblocks_defi_sdk_py',
+    name='fireblocks_defi_sdk',
     packages=['fireblocks_defi_sdk_py',
               'fireblocks_defi_sdk_py.tokenization',
               'fireblocks_defi_sdk_py.tokenization.tokens',
@@ -15,7 +15,7 @@ setup(
     author='Fireblocks',
     author_email='fireblocks@fireblocks.com',
     url='https://github.com/fireblocks/fireblocks-defi-sdk-py',
-    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.1.tar.gz',
+    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.0.0.tar.gz',
     keywords=['FIREBLOCKS', 'DeFi', 'SDK', 'PYTHON'],
 
     install_requires=[
