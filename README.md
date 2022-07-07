@@ -1,5 +1,5 @@
 # Fireblocks Python DeFi SDK
-[![PyPI version](https://badge.fury.io/py/fireblocks-defi-sdk-py.svg)](https://badge.fury.io/py/fireblocks-defi-sdk)
+[![PyPI version](https://badge.fury.io/py/fireblocks-defi-sdk.svg)](https://badge.fury.io/py/fireblocks-defi-sdk)
 
 The Fireblocks Python DeFi SDK provides an interoperability layer between Fireblocks Smart Contract API and common DeFi libraries.
 For more information on Fireblocks Smart Contract API and automating DeFi workflows on Fireblocks [read here](https://support.fireblocks.io/hc/en-us/articles/360017709160-Fireblocks-Smart-Contract-API).
