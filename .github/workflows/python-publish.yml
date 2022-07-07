@@ -37,7 +37,7 @@ jobs:
           git remote update
           git fetch
           echo "finished fetching"
-          git checkout --track origin/master
+          git checkout --track origin/main
           echo "finished checkout"
           git config --global user.email "github-actions@github.com"
           git config --global user.name "Github Actions"
