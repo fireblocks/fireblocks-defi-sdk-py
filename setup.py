@@ -1,19 +1,21 @@
 from distutils.core import setup
 
 setup(
-    name='fireblocks_defi_sdk_py',
+    name='fireblocks_defi_sdk',
     packages=['fireblocks_defi_sdk_py',
               'fireblocks_defi_sdk_py.tokenization',
               'fireblocks_defi_sdk_py.tokenization.tokens',
               'fireblocks_defi_sdk_py.tokenization.utils',
               'fireblocks_defi_sdk_py.tokenization.examples'],
-    version='1.2',
+    version='1.0.0',
     license='MIT',
     description='fireblocks_defi_sdk_py',
+    long_description="""Fireblocks python SDK""",
+    long_description_content_type='text/markdown',
     author='Fireblocks',
     author_email='fireblocks@fireblocks.com',
     url='https://github.com/fireblocks/fireblocks-defi-sdk-py',
-    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.1.tar.gz',
+    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.0.0.tar.gz',
     keywords=['FIREBLOCKS', 'DeFi', 'SDK', 'PYTHON'],
 
     install_requires=[
