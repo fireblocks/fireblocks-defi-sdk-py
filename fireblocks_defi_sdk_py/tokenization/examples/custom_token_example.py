@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # represent our custom contract. In order to initiate a CustomToken, we will need a contract ABI. This can be read
     # from another file, passed as a variable declared locally, or fetched from EtherScan using fetch_abi(address). We
     # will use the first.
-    ropsten_bridge = Web3Bridge(SDK, VAULT_ID, CONTRACT_ADDRESS, Chain.ROPSTEN, WHITELISTED_CONTRACT_UUID)
+    ropsten_bridge = Web3Bridge(SDK, VAULT_ID, Chain.ROPSTEN, CONTRACT_ADDRESS, WHITELISTED_CONTRACT_UUID)
     with open(FILE_PATH, MODE) as file:
         contract_abi = file.read()
     custom_contract_bridge = CustomToken(ropsten_bridge, contract_abi)
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     checked_address = custom_contract_bridge.web_provider.toChecksumAddress(custom_contract_bridge.wallet_address)
     if custom_contract_bridge.call_read_function("contractOwner", checked_address):
         # We will initiate another bridge, as we will need the wallet address, and we will later on transfer it back.
-        secondary_ropsten_bridge = Web3Bridge(SDK, SECONDARY_VAULT_ID, CONTRACT_ADDRESS, Chain.ROPSTEN,
+        secondary_ropsten_bridge = Web3Bridge(SDK, SECONDARY_VAULT_ID, Chain.ROPSTEN, CONTRACT_ADDRESS,
                                               WHITELISTED_CONTRACT_UUID)
         secondary_contract_bridge = CustomToken(secondary_ropsten_bridge, contract_abi)
         building_params = {"from": checked_address}
