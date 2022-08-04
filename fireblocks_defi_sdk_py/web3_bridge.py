@@ -67,7 +67,7 @@ class Web3Bridge:
         :return:
         """
         if self.wl_uuid:
-            destination = TransferPeerPath(EXTERNAL_WALLET, self.wl_uuid)
+            destination = DestinationTransferPeerPath(EXTERNAL_WALLET, self.wl_uuid)
         else:
             if not self.external_wallet_address:
                 address = "0x0"
