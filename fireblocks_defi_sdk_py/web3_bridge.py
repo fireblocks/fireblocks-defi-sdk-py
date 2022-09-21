@@ -79,7 +79,7 @@ class Web3Bridge:
             tx_type="CONTRACT_CALL",
             asset_id=self.asset,
             source=TransferPeerPath(VAULT_ACCOUNT, self.source_vault_id),
-            amount="0",
+            amount=transaction.get("value") or "0",
             destination=destination,
             note=note,
             extra_parameters={
