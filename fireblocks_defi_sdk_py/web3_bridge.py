@@ -1,7 +1,7 @@
 import time
 
 from fireblocks_sdk import FireblocksSDK, TransferPeerPath, DestinationTransferPeerPath, ONE_TIME_ADDRESS, \
-    VAULT_ACCOUNT, EXTERNAL_WALLET, TRANSACTION_STATUS_BLOCKED, TRANSACTION_STATUS_COMPLETED, TRANSACTION_STATUS_FAILED
+    VAULT_ACCOUNT, CONTRACT, TRANSACTION_STATUS_BLOCKED, TRANSACTION_STATUS_COMPLETED, TRANSACTION_STATUS_FAILED
 from fireblocks_sdk.api_types import TRANSACTION_STATUS_CANCELLED
 from .chain import Chain
 from web3 import Web3
@@ -67,7 +67,7 @@ class Web3Bridge:
         :return:
         """
         if self.wl_uuid:
-            destination = TransferPeerPath(EXTERNAL_WALLET, self.wl_uuid)
+            destination = TransferPeerPath(CONTRACT, self.wl_uuid)
         else:
             if not self.external_wallet_address:
                 address = "0x0"
@@ -79,7 +79,7 @@ class Web3Bridge:
             tx_type="CONTRACT_CALL",
             asset_id=self.asset,
             source=TransferPeerPath(VAULT_ACCOUNT, self.source_vault_id),
-            amount="0",
+            amount=transaction.get("value") or "0",
             destination=destination,
             note=note,
             extra_parameters={
