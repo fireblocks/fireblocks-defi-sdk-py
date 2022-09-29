@@ -1,9 +1,8 @@
 import os
 import json
 
-from web3_bridge import Web3Bridge
+from fireblocks_defi_sdk_py import Web3Bridge, Chain
 from web3 import Web3
-from chain import Chain
 from datetime import datetime, timedelta
 
 from fireblocks_sdk import FireblocksSDK, TransferPeerPath, TRANSACTION_STATUS_CONFIRMED, TRANSACTION_STATUS_CANCELLED, TRANSACTION_STATUS_REJECTED, TRANSACTION_STATUS_FAILED, VAULT_ACCOUNT,\
