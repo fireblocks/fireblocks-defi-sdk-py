@@ -34,7 +34,9 @@ CHAIN_TO_ASSET_ID = {
     Chain.CELO_BAK: ('CELO_BAK', "https://baklava-blockscout.celo-testnet.org/api/eth-rpc"),
     Chain.OPTIMISM: ('ETH-OPT', "https://rpc.ankr.com/optimism"),
     Chain.OPTIMISM_KOVAN: ('ETH-OPT_KOV', "https://optimism-kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"),
-    Chain.RONIN: ('RON', "https://api.roninchain.com/rpc")
+    Chain.RONIN: ('RON', "https://api.roninchain.com/rpc"),
+    Chain.ARBITRUM: ('ETH-AETH', "https://rpc.ankr.com/arbitrum"),
+    Chain.ARBITRUM_GOERLI: ('ETH-AETH_RIN', "https://goerli-rollup.arbitrum.io/rpc")
 }
 
 
