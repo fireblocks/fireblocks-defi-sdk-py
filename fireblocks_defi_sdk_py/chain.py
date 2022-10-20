@@ -28,3 +28,4 @@ class Chain(Enum):
     RONIN = "ronin"
     RONIN_TEST = "ronin_test"
     ARBITRUM = "arbitrum"
+    ARBITRUM_GOERLI = "arbitrum_goerli
