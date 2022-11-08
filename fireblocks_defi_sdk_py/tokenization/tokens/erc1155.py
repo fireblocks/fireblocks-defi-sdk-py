@@ -95,28 +95,28 @@ class ERC1155(BaseToken):
         """
         return self.call_read_function("supportsInterface", interface_id)
 
-   def balance_of(self, token_id: int, owner_address: str = "") -> int:
-       """
-       Gets the balance of the address provided
-       :param owner_address: Address to be checked
-       :param token_id: ID of the token.
-       :return: Balance (int)
-       """
-       if not owner_address:
-           owner_address = self.wallet_address
-       return self.call_read_function("balanceOf", owner_address, token_id)
+    def balance_of(self, token_id: int, owner_address: str = "") -> int:
+        """
+        Gets the balance of the address provided
+        :param owner_address: Address to be checked
+        :param token_id: ID of the token.
+        :return: Balance (int)
+        """
+        if not owner_address:
+            owner_address = self.wallet_address
+        return self.call_read_function("balanceOf", owner_address, token_id)
 
-     def balance_of_batch(self, id_list: list[int], owners_list=None) -> list[int]:
-         """
+    def balance_of_batch(self, id_list: list[int], owners_list=None) -> list[int]:
+        """
 
-         :param owners_list: A list of addresses
-         :param id_list: A list of token Ids
-         :return:
-         """
-         if not owners_list:
-             owners_list = [self.wallet_address] * len(id_list)
-         checked_addresses = [self.web_provider.toChecksumAddress(address) for address in owners_list]
-         return self.call_read_function("balanceOfBatch", checked_addresses, id_list)
+        :param owners_list: A list of addresses
+        :param id_list: A list of token Ids
+        :return:
+        """
+        if not owners_list:
+            owners_list = [self.wallet_address] * len(id_list)
+        checked_addresses = [self.web_provider.toChecksumAddress(address) for address in owners_list]
+        return self.call_read_function("balanceOfBatch", checked_addresses, id_list)
 
     def is_approved_for_all(self, operator_address: str, owner_address: str = "") -> bool:
         """
