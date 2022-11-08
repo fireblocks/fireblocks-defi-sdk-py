@@ -50,40 +50,40 @@ class ERC1155(BaseToken):
 
         return self.submit_transaction(transaction, note)
 
-     def safe_batch_transfer_from(self, to_address: str, token_ids: list[int], values: list[int], from_address: str = "",
-                                  data: bytes = bytearray(), note: str = ""):
-         """
-         Length of token_ids and values must match. Moreover, the value of each token (at position x at [values]) to be
-         sent must match the same position at [token_ids] (position x). For example:
-         token_ids [3, 6, 10] and values [10, 20, 30] will send:
-         - 10 tokens of token id 3
-         - 20 tokens of token id 6
-         - 30 tokens of token id 10
-         :param to_address: The receiver of the token.
-         :param token_ids: A list of token ids to transfer from sender to receiver.
-         :param values: A list of values to transfer of each token.
-         :param from_address: (Optional) The sender of the token, if it's not the wallet under Fireblocks.
-         :param data: (Optional) Send additional data (bytes) only if required by contract.
-         :param note: (Optional) Add a note to the transaction.
-         :return: None
-         """
-         if not from_address:
-             from_address = self.wallet_address
-         address_dict = {"from": self.web_provider.toChecksumAddress(from_address)}
-         checked_from_adr = self.web_provider.toChecksumAddress(from_address)
-         checked_to_adr = self.web_provider.toChecksumAddress(to_address)
-         if len(token_ids) != len(values):
-             raise ValueError("Length of token_ids and values must match!")
+    def safe_batch_transfer_from(self, to_address: str, token_ids: list[int], values: list[int], from_address: str = "",
+                                 data: bytes = bytearray(), note: str = ""):
+        """
+        Length of token_ids and values must match. Moreover, the value of each token (at position x at [values]) to be
+        sent must match the same position at [token_ids] (position x). For example:
+        token_ids [3, 6, 10] and values [10, 20, 30] will send:
+        - 10 tokens of token id 3
+        - 20 tokens of token id 6
+        - 30 tokens of token id 10
+        :param to_address: The receiver of the token.
+        :param token_ids: A list of token ids to transfer from sender to receiver.
+        :param values: A list of values to transfer of each token.
+        :param from_address: (Optional) The sender of the token, if it's not the wallet under Fireblocks.
+        :param data: (Optional) Send additional data (bytes) only if required by contract.
+        :param note: (Optional) Add a note to the transaction.
+        :return: None
+        """
+        if not from_address:
+            from_address = self.wallet_address
+        address_dict = {"from": self.web_provider.toChecksumAddress(from_address)}
+        checked_from_adr = self.web_provider.toChecksumAddress(from_address)
+        checked_to_adr = self.web_provider.toChecksumAddress(to_address)
+        if len(token_ids) != len(values):
+            raise ValueError("Length of token_ids and values must match!")
 
-         transaction = self.contract.functions.safeBatchTransferFrom(
-             checked_from_adr,
-             checked_to_adr,
-             token_ids,
-             values,
-             data
-         ).buildTransaction(address_dict)
+        transaction = self.contract.functions.safeBatchTransferFrom(
+            checked_from_adr,
+            checked_to_adr,
+            token_ids,
+            values,
+            data
+        ).buildTransaction(address_dict)
 
-         return self.submit_transaction(transaction, note)
+        return self.submit_transaction(transaction, note)
 
     # Views
     def supports_interface(self, interface_id: str = "0xd9b67a26") -> bool:
@@ -95,16 +95,16 @@ class ERC1155(BaseToken):
         """
         return self.call_read_function("supportsInterface", interface_id)
 
-    def balance_of(self, token_id: int, owner_address: str = "") -> int:
-        """
-        Gets the balance of the address provided
-        :param owner_address: Address to be checked
-        :param token_id: ID of the token.
-        :return: Balance (int)
-        """
-        if not owner_address:
-            owner_address = self.wallet_address
-        return self.call_read_function("balanceOf", owner_address, token_id)
+   def balance_of(self, token_id: int, owner_address: str = "") -> int:
+       """
+       Gets the balance of the address provided
+       :param owner_address: Address to be checked
+       :param token_id: ID of the token.
+       :return: Balance (int)
+       """
+       if not owner_address:
+           owner_address = self.wallet_address
+       return self.call_read_function("balanceOf", owner_address, token_id)
 
      def balance_of_batch(self, id_list: list[int], owners_list=None) -> list[int]:
          """
