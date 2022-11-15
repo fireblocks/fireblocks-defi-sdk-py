@@ -1,2 +1,3 @@
 fireblocks_sdk==1.12.0
 web3==5.26.0
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
