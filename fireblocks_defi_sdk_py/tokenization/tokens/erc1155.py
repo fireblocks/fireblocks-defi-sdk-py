@@ -1,3 +1,5 @@
+from typing import List
+
 from . base_token import *
 from .. utils.helpers import ERC1155_ABI
 
@@ -50,7 +52,7 @@ class ERC1155(BaseToken):
 
         return self.submit_transaction(transaction, note)
 
-    def safe_batch_transfer_from(self, to_address: str, token_ids: list[int], values: list[int], from_address: str = "",
+    def safe_batch_transfer_from(self, to_address: str, token_ids: List[int], values: List[int], from_address: str = "",
                                  data: bytes = bytearray(), note: str = ""):
         """
         Length of token_ids and values must match. Moreover, the value of each token (at position x at [values]) to be
@@ -106,7 +108,7 @@ class ERC1155(BaseToken):
             owner_address = self.wallet_address
         return self.call_read_function("balanceOf", owner_address, token_id)
 
-    def balance_of_batch(self, id_list: list[int], owners_list=None) -> list[int]:
+    def balance_of_batch(self, id_list: List[int], owners_list=None) -> List[int]:
         """
 
         :param owners_list: A list of addresses
