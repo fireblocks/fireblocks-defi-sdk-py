@@ -20,7 +20,7 @@ setup(
     download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.0.0.tar.gz',
     keywords=['FIREBLOCKS', 'DeFi', 'SDK', 'PYTHON'],
     install_requires=[
-        'fireblocks_sdk==1.12.0',
+        'fireblocks_sdk==1.17.3',
         'web3==5.26.0'
     ],
     classifiers=[
