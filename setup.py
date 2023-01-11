@@ -9,7 +9,7 @@ setup(
         'fireblocks_defi_sdk_py.tokenization.utils',
         'fireblocks_defi_sdk_py.tokenization.examples'
     ],
-    version='1.0.0',
+    version='1.0.1',
     license='MIT',
     description='fireblocks_defi_sdk_py',
     long_description="""Fireblocks python SDK""",
@@ -17,7 +17,7 @@ setup(
     author='Fireblocks',
     author_email='fireblocks@fireblocks.com',
     url='https://github.com/fireblocks/fireblocks-defi-sdk-py',
-    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.0.0.tar.gz',
+    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.0.1.tar.gz',
     keywords=['FIREBLOCKS', 'DeFi', 'SDK', 'PYTHON'],
     install_requires=[
         'fireblocks_sdk==1.17.3',
