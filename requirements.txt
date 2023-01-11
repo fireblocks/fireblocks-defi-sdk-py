@@ -1,2 +1,0 @@
-fireblocks_sdk==1.12.0
-web3==5.26.0
