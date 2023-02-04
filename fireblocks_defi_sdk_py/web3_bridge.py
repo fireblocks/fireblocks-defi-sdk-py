@@ -19,7 +19,7 @@ CHAIN_TO_ASSET_ID = {
     Chain.BSC: ('BNB_BSC', "https://bsc-dataseed.binance.org"),
     Chain.BSC_TEST: ('BNB_TEST', "https://data-seed-prebsc-1-s1.binance.org:8545"),
     Chain.POLYGON: ('MATIC_POLYGON', "https://polygon-rpc.com"),
-    Chain.POLYGON_TEST: ('MATIC_POLYGON_MUMBAI', "https://rpc-mumbai.maticvigil.com"),
+    Chain.POLYGON_TEST: ('POLYGON_TEST_MUMBAI', "https://rpc-mumbai.maticvigil.com"),
     Chain.AVALANCHE: ('AVAX', "https://api.avax.network/ext/bc/C/rpc"),
     Chain.AVALANCHE_TEST: ('AVAXTEST', "https://api.avax-test.network/ext/bc/C/rpc"),
     Chain.MOONRIVER: ('MOVR_MOVR', "https://rpc.moonriver.moonbeam.network"),
