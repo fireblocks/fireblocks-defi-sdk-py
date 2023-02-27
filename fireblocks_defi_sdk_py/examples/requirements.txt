@@ -1,0 +1,3 @@
+fireblocks-defi-sdk
+eth-tester==0.8.0b3
+py-evm==0.6.1a2
