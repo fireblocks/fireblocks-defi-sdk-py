@@ -78,10 +78,7 @@ class Web3Bridge:
             destination = DestinationTransferPeerPath(ONE_TIME_ADDRESS,
                                                       one_time_address={"address": address})
         amount = transaction.get("value")
-        if amount:
-            amount = str(Web3.fromWei(amount, 'ether'))
-        else:
-            amount = "0"
+        amount = float(Web3.fromWei(amount or "0", "ether"))
         return self.fb_api_client.create_transaction(
             tx_type="CONTRACT_CALL",
             asset_id=self.asset,
