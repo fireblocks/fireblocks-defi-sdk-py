@@ -1,5 +1,5 @@
 ## Updates
-If you're looking to interact with EVM chains through Fireblocks, you might also want to checkout our new [Fireblocks Local JSON-RPC](https://github.com/fireblocks/fireblocks-json-rpc).
+Check out our new SDK [Local-JSON-RPC](https://github.com/fireblocks/fireblocks-json-rpc) for an improved developer experience for using Python to interact with EVM chains using Fireblocks.
 
 # Fireblocks Python DeFi SDK
 [![PyPI version](https://badge.fury.io/py/fireblocks-defi-sdk.svg)](https://badge.fury.io/py/fireblocks-defi-sdk)
