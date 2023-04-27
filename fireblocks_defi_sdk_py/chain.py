@@ -28,3 +28,5 @@ class Chain(Enum):
     OPTIMISM_KOVAN = "optimistic ethereum kovan"
     RONIN = "ronin"
     RONIN_TEST = "ronin_test"
+    ARBITRUM = "arbitrum"
+    ARBITRUM_GOERLI = "arbitrum_goerli"
