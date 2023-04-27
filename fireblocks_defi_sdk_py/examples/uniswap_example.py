@@ -35,7 +35,7 @@ def approve_withdrawal_input_token():
                           external_wallet_address=erc20_input_token_proxy_addr,
                           chain=CHAIN)
     input_token_abi = json.loads(erc20_input_token_abi)
-    contract = w3.eth.contract(address=Web3.toChecksumAddress(erc20_input_token_addr), abi=input_token_abi)
+    contract = w3.eth.contract(address=Web3.to_checksum_address(erc20_input_token_addr), abi=input_token_abi)
     approve_tx = contract.functions.approve(uniswap_router_addr, 999999999).buildTransaction()
     tx_res = w3bridge.send_transaction(approve_tx, note="contract call approve")
     print(tx_res)
@@ -48,13 +48,13 @@ def call_uniswap_action():
                           external_wallet_address=uniswap_router_addr,
                           chain=CHAIN)
     uniswap_abi = json.loads(uniswap_router_abi)
-    contract = w3.eth.contract(address=Web3.toChecksumAddress(uniswap_router_addr), abi=uniswap_abi)
+    contract = w3.eth.contract(address=Web3.to_checksum_address(uniswap_router_addr), abi=uniswap_abi)
     deadline = (datetime.now() + timedelta(seconds=180)).timestamp()
     deadline = int(deadline)
     uniswap_call_tx = contract.functions.swapTokensForExactTokens(1000000000000, 100000000000,
-                                                [Web3.toChecksumAddress(erc20_input_token_proxy_addr),
-                                                 Web3.toChecksumAddress(output_token_addr)],
-                                                 Web3.toChecksumAddress(addr_to_get_output_tokens),
+                                                [Web3.to_checksum_address(erc20_input_token_proxy_addr),
+                                                 Web3.to_checksum_address(output_token_addr)],
+                                                 Web3.to_checksum_address(addr_to_get_output_tokens),
                                                  deadline).buildTransaction()
     tx_res = w3bridge.send_transaction(uniswap_call_tx, note="Uniswap contract call")
     print(tx_res)

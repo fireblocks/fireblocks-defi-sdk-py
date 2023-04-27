@@ -25,14 +25,14 @@ if __name__ == "__main__":
 
     # Let's assume our ABI holds a transferOwnership write function, and a contractOwner function (returning a boolean).
     # We will first validate we own the contract and then transfer it to another vault in our account.
-    checked_address = custom_contract_bridge.web_provider.toChecksumAddress(custom_contract_bridge.wallet_address)
+    checked_address = custom_contract_bridge.web_provider.to_checksum_address(custom_contract_bridge.wallet_address)
     if custom_contract_bridge.call_read_function("contractOwner", checked_address):
         # We will initiate another bridge, as we will need the wallet address, and we will later on transfer it back.
         secondary_ropsten_bridge = Web3Bridge(SDK, SECONDARY_VAULT_ID, CONTRACT_ADDRESS, Chain.ROPSTEN,
                                               WHITELISTED_CONTRACT_UUID)
         secondary_contract_bridge = CustomToken(secondary_ropsten_bridge, contract_abi)
         building_params = {"from": checked_address}
-        secondary_address = secondary_contract_bridge.web_provider.toChecksumAddress(
+        secondary_address = secondary_contract_bridge.web_provider.to_checksum_address(
             secondary_contract_bridge.wallet_address)
         transfer_ownership_raw_transaction = custom_contract_bridge. \
             call_write_function("transferOwnership",

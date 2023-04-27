@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     # We will mint a token (function receives address & amount) to our own address and then send it to another address.
     # We will also have to add the sender under the building_params in the following format:
-    checked_address = erc20_contract_bridge.web_provider.toChecksumAddress(erc20_contract_bridge.wallet_address)
+    checked_address = erc20_contract_bridge.web_provider.to_checksum_address(erc20_contract_bridge.wallet_address)
     # Web3 only accepts checkedSum addresses.
     building_params = {"from": checked_address}
     mint_raw_transaction = erc20_contract_bridge.call_write_function("mint", checked_address,
