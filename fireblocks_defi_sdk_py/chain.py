@@ -18,6 +18,7 @@ class Chain(Enum):
     SONGBIRD = "songbird"
     ARBITRUM = "arbitrum"
     ARBITRUM_RIN = "arbitrum_rin"
+    ARBITRUM_GOERLI = "arbitrum_goerli"
     FANTOM = "fantom"
     RSK = "rsk_smart_bitcoin"
     RSK_TEST = "rsk smart bitcoin testnet"
