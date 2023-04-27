@@ -9,7 +9,7 @@ setup(
         'fireblocks_defi_sdk_py.tokenization.utils',
         'fireblocks_defi_sdk_py.tokenization.examples'
     ],
-    version='1.0.2',
+    version='1.1.0',
     license='MIT',
     description='fireblocks_defi_sdk_py',
     long_description="""Fireblocks python SDK""",
