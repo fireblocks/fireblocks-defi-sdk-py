@@ -13,13 +13,13 @@ RECEIVER_ADDRESS = ""
 TOKEN_AMOUNT = 10
 
 if __name__ == "__main__":
-    # We start by building a bridge to the Ropsten network, including initiating a CustomToken object which will
+    # We start by building a bridge to the Goerli network, including initiating a CustomToken object which will
     # represent our ERC20 contract. In order to initiate a CustomToken, we will need a contract ABI. This can be read
     # from another file, passed as a variable declared locally, or fetched from EtherScan using fetch_abi(address). We
     # will use the latter.
-    ropsten_bridge = Web3Bridge(SDK, VAULT_ID, CONTRACT_ADDRESS, Chain.ROPSTEN)
+    goerli_bridge = Web3Bridge(SDK, VAULT_ID, Chain.GOERLI, CONTRACT_ADDRESS)
     contract_abi = fetch_abi(CONTRACT_ADDRESS)
-    erc20_contract_bridge = CustomToken(ropsten_bridge, contract_abi)
+    erc20_contract_bridge = CustomToken(goerli_bridge, contract_abi)
 
     # We build functions through passing the function name exactly as it appears on the ABI, following by its arguments.
     # It's important to differentiate between a read (view) and write function. We will demonstrate both.
@@ -39,7 +39,7 @@ if __name__ == "__main__":
                                                                      building_params=building_params)
     # We will now submit the transaction to Fireblocks.
     mint_transaction = erc20_contract_bridge.submit_transaction(mint_raw_transaction)
-    if ropsten_bridge.check_tx_is_completed(mint_transaction['id']) == TRANSACTION_STATUS_COMPLETED:
+    if goerli_bridge.check_tx_is_completed(mint_transaction['id']) == TRANSACTION_STATUS_COMPLETED:
         print(f"Successfully minted {TOKEN_AMOUNT} to {erc20_contract_bridge.wallet_address}")
         transfer_raw_transaction = erc20_contract_bridge.call_write_function("transferFrom",
                                                                              checked_address,
@@ -47,7 +47,7 @@ if __name__ == "__main__":
                                                                              building_params=building_params)
         transfer_transaction = erc20_contract_bridge.submit_transaction(transfer_raw_transaction,
                                                                         "Transferring 10 minted tokens.")
-        if ropsten_bridge.check_tx_is_completed(transfer_transaction['id']):
+        if goerli_bridge.check_tx_is_completed(transfer_transaction['id']):
             print(
                 f"Successfully transferred {TOKEN_AMOUNT} from {erc20_contract_bridge.wallet_address} to "
                 f"{RECEIVER_ADDRESS}")

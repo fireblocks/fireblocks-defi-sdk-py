@@ -62,7 +62,7 @@ class Web3Bridge:
 
     def send_transaction(self, transaction: dict, note="") -> dict:
         """
-        Takes a ready transaction after being built (using web3 buildTransaction()) and transmits it to Fireblocks.
+        Takes a ready transaction after being built (using web3 build_transaction()) and transmits it to Fireblocks.
         :param transaction: A transaction object (dict) to submit to the blockchain.
         :param note: (Optional) A note to submit with the transaction.
         :return:

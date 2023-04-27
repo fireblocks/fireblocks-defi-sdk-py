@@ -48,7 +48,7 @@ class ERC1155(BaseToken):
             token_id,
             amount,
             data
-        ).buildTransaction(address_dict)
+        ).build_transaction(address_dict)
 
         return self.submit_transaction(transaction, note)
 
@@ -83,7 +83,7 @@ class ERC1155(BaseToken):
             token_ids,
             values,
             data
-        ).buildTransaction(address_dict)
+        ).build_transaction(address_dict)
 
         return self.submit_transaction(transaction, note)
 

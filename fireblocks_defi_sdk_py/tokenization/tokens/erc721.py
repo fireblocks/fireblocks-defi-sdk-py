@@ -50,14 +50,14 @@ class ERC721(BaseToken):
                 checked_to_adr,
                 token_id,
                 data
-            ).buildTransaction(address_dict)
+            ).build_transaction(address_dict)
 
         else:
             transaction = self.contract.functions.safeTransferFrom(
                 checked_from_adr,
                 checked_to_adr,
                 token_id
-            ).buildTransaction(address_dict)
+            ).build_transaction(address_dict)
 
         return self.submit_transaction(transaction, note)
 

@@ -42,11 +42,11 @@ class BaseToken:
         """
         if not building_params:
             building_params = {}
-        return self.contract.get_function_by_name(abi_function)(*args).buildTransaction(building_params)
+        return self.contract.get_function_by_name(abi_function)(*args).build_transaction(building_params)
 
     def submit_transaction(self, transaction: dict, note: str = "") -> dict:
         """
-        Takes a ready transaction after being built (using web3 buildTransaction()) and transmits it to Fireblocks.
+        Takes a ready transaction after being built (using web3 build_transaction()) and transmits it to Fireblocks.
         :param note:
         :param transaction:
         :return:
