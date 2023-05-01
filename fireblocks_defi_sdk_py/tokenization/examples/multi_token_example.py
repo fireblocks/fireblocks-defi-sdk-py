@@ -14,9 +14,9 @@ RECEIVER_ADDRESSES = ""
 TOKEN_IDS = [1, 2]
 
 if __name__ == "__main__":
-    # We start by building a bridge to the Kovan network, including initiating a ERC1155 object.
-    kovan_bridge = Web3Bridge(SDK, VAULT_ID, CONTRACT, Chain.KOVAN)
-    multi_token_contract_bridge = ERC1155(kovan_bridge)
+    # We start by building a bridge to the Goerli network, including initiating a ERC1155 object.
+    goerli_bridge = Web3Bridge(SDK, VAULT_ID, Chain.GOERLI, CONTRACT)
+    multi_token_contract_bridge = ERC1155(goerli_bridge)
 
     # ERC1155 implements all the basic capabilities mentioned in ERC721:
     # https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/
@@ -31,7 +31,7 @@ if __name__ == "__main__":
         transfer_tokens = multi_token_contract_bridge.safe_batch_transfer_from(RECEIVER_ADDRESSES, TOKEN_IDS,
                                                                                tokens_balance,
                                                                                note="Transfer to another vault.")
-        transfer_result = kovan_bridge.check_tx_is_completed(transfer_tokens['id'])
+        transfer_result = goerli_bridge.check_tx_is_completed(transfer_tokens['id'])
 
         if transfer_result == TRANSACTION_STATUS_COMPLETED:
             print(f"{RECEIVER_ADDRESSES} now owns {tokens_balance} of tokens: {TOKEN_IDS}")

@@ -13,9 +13,9 @@ RECEIVER_ADDRESS = ""
 TOKEN_ID = 1
 
 if __name__ == "__main__":
-    # We start by building a bridge to the Ropsten network, including initiating a ERC721 object.
-    ropsten_bridge = Web3Bridge(SDK, VAULT_ID, CONTRACT_ADDRESS, Chain.ROPSTEN)
-    nft_contract_bridge = ERC721(ropsten_bridge)
+    # We start by building a bridge to the Goerli network, including initiating a ERC721 object.
+    goerli_bridge = Web3Bridge(SDK, VAULT_ID, Chain.GOERLI, CONTRACT_ADDRESS)
+    nft_contract_bridge = ERC721(goerli_bridge)
 
     # ERC721 implements all the basic capabilities mentioned in ERC721:
     # https://ethereum.org/en/developers/docs/standards/tokens/erc-721/
@@ -40,7 +40,7 @@ if __name__ == "__main__":
             receiver_initial_balance = nft_contract_bridge.balance_of(RECEIVER_ADDRESS)
             # safe_transfer_from returns a dictionary with a status and id.
             transaction = nft_contract_bridge.safe_transfer_from(RECEIVER_ADDRESS, TOKEN_ID)
-            transaction_result = ropsten_bridge.check_tx_is_completed(transaction['id'])
+            transaction_result = goerli_bridge.check_tx_is_completed(transaction['id'])
 
             if transaction_result == TRANSACTION_STATUS_COMPLETED:
                 # After the transaction has been completed we check whether the balance of the receiver has been updated

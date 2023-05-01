@@ -10,7 +10,7 @@ from fireblocks_sdk import FireblocksSDK, TransferPeerPath, TRANSACTION_STATUS_C
 w3 = Web3(Web3.EthereumTesterProvider())
 print(w3.isConnected())
 CHAIN = Chain.ROPSTEN
-CONTRACT_ADDRESS = Web3.toChecksumAddress("0xcbe74e21b070a979b9d6426b11e876d4cb618daf")
+CONTRACT_ADDRESS = Web3.to_checksum_address("0xcbe74e21b070a979b9d6426b11e876d4cb618daf")
 EIP20_ABI = json.loads('[{"constant":false,"inputs":[{"name":"_greeting","type":"string"}],"name":"greet","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getGreeting","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]')
 GREETING = "Hello web3"
 

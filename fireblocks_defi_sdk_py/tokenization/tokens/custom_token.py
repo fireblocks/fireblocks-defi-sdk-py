@@ -6,6 +6,6 @@ class CustomToken(BaseToken):
         super().__init__(web3_bridge)
         self.abi = custom_abi
         self.contract = self.web_provider.eth.contract(
-            address=self.web_provider.toChecksumAddress(self.web3_bridge.external_wallet_address),
+            address=self.web_provider.to_checksum_address(self.web3_bridge.external_wallet_address),
             abi=self.abi
         )

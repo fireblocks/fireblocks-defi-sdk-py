@@ -9,7 +9,7 @@ class ERC1155(BaseToken):
         super().__init__(web3_bridge)
         self.abi = ERC1155_ABI
         self.contract: contract = self.web_provider.eth.contract(
-            address=self.web_provider.toChecksumAddress(self.web3_bridge.external_wallet_address),
+            address=self.web_provider.to_checksum_address(self.web3_bridge.external_wallet_address),
             abi=self.abi
         )
 
@@ -22,7 +22,7 @@ class ERC1155(BaseToken):
         :param note: (Optional) Add a note to the transaction.
         :return: None
         """
-        checked_op_adr = self.web_provider.toChecksumAddress(operator_address)
+        checked_op_adr = self.web_provider.to_checksum_address(operator_address)
         return self.submit_transaction(self.call_write_function("setApprovalForAll", checked_op_adr, is_approved), note)
 
     def safe_transfer_from(self, to_address: str, token_id: int, amount: int, from_address: str = "",
@@ -38,9 +38,9 @@ class ERC1155(BaseToken):
         """
         if not from_address:
             from_address = self.wallet_address
-        address_dict = {"from": self.web_provider.toChecksumAddress(from_address)}
-        checked_from_adr = self.web_provider.toChecksumAddress(from_address)
-        checked_to_adr = self.web_provider.toChecksumAddress(to_address)
+        address_dict = {"from": self.web_provider.to_checksum_address(from_address)}
+        checked_from_adr = self.web_provider.to_checksum_address(from_address)
+        checked_to_adr = self.web_provider.to_checksum_address(to_address)
 
         transaction = self.contract.functions.safeTransferFrom(
             checked_from_adr,
@@ -48,7 +48,7 @@ class ERC1155(BaseToken):
             token_id,
             amount,
             data
-        ).buildTransaction(address_dict)
+        ).build_transaction(address_dict)
 
         return self.submit_transaction(transaction, note)
 
@@ -71,9 +71,9 @@ class ERC1155(BaseToken):
         """
         if not from_address:
             from_address = self.wallet_address
-        address_dict = {"from": self.web_provider.toChecksumAddress(from_address)}
-        checked_from_adr = self.web_provider.toChecksumAddress(from_address)
-        checked_to_adr = self.web_provider.toChecksumAddress(to_address)
+        address_dict = {"from": self.web_provider.to_checksum_address(from_address)}
+        checked_from_adr = self.web_provider.to_checksum_address(from_address)
+        checked_to_adr = self.web_provider.to_checksum_address(to_address)
         if len(token_ids) != len(values):
             raise ValueError("Length of token_ids and values must match!")
 
@@ -83,7 +83,7 @@ class ERC1155(BaseToken):
             token_ids,
             values,
             data
-        ).buildTransaction(address_dict)
+        ).build_transaction(address_dict)
 
         return self.submit_transaction(transaction, note)
 
@@ -117,7 +117,7 @@ class ERC1155(BaseToken):
         """
         if not owners_list:
             owners_list = [self.wallet_address] * len(id_list)
-        checked_addresses = [self.web_provider.toChecksumAddress(address) for address in owners_list]
+        checked_addresses = [self.web_provider.to_checksum_address(address) for address in owners_list]
         return self.call_read_function("balanceOfBatch", checked_addresses, id_list)
 
     def is_approved_for_all(self, operator_address: str, owner_address: str = "") -> bool:
@@ -129,8 +129,8 @@ class ERC1155(BaseToken):
         """
         if not owner_address:
             owner_address = self.wallet_address
-        owner_checked_address = self.web_provider.toChecksumAddress(owner_address)
-        operator_checked_address = self.web_provider.toChecksumAddress(operator_address)
+        owner_checked_address = self.web_provider.to_checksum_address(owner_address)
+        operator_checked_address = self.web_provider.to_checksum_address(operator_address)
         return self.call_read_function("isApprovedForAll", owner_checked_address, operator_checked_address)
 
     def uri(self, token_id: int) -> str:
