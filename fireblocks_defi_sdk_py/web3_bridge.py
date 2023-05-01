@@ -26,7 +26,7 @@ CHAIN_TO_ASSET_ID = {
     Chain.MOONBEAM: ('GLMR_GLMR', "https://rpc.api.moonbeam.network"),
     Chain.SONGBIRD: ('SGB', "https://songbird.towolabs.com/rpc"),
     Chain.ARBITRUM: ('ETH-AETH', "https://rpc.ankr.com/arbitrum"),
-    Chain.ARBITRUM_RIN: ('ETH-AETH-RIN', "https://rinkeby.arbitrum.io/rpc"),
+    Chain.ARBITRUM_RIN: ('ETH-AETH_RIN', "https://rinkeby.arbitrum.io/rpc"),
     Chain.FANTOM: ('FTM_FANTOM', "https://rpc.ftm.tools/"),
     Chain.RSK: ('RBTC', "https://public-node.rsk.co"),
     Chain.RSK_TEST: ('RBTC_TEST', "https://public-node.testnet.rsk.co"),
