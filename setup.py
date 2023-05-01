@@ -17,7 +17,7 @@ setup(
     author='Fireblocks',
     author_email='fireblocks@fireblocks.com',
     url='https://github.com/fireblocks/fireblocks-defi-sdk-py',
-    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.0.2.tar.gz',
+    download_url='https://github.com/fireblocks/fireblocks-defi-sdk-py/archive/refs/tags/1.1.0.tar.gz',
     keywords=['FIREBLOCKS', 'DeFi', 'SDK', 'PYTHON'],
     install_requires=[
         'fireblocks_sdk==1.19.0',
